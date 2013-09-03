@@ -208,12 +208,12 @@ CBLabs.CybozuConnect.Schedule = function (app) {
         /// <param name="options.start" type="Date">取得する期間の開始日時</param>
         /// <param name="options.end" type="Date">取得する期間の終了日時</param>
         /// <param name="options.userId" type="String">ユーザーID</param>
-        /// <param name="options.organizationId" type="String">組織ID</param>
+        /// <param name="options.groupId" type="String">組織ID</param>
         /// <param name="options.facilityId" type="String">設備ID</param>
         /// <returns type="Array">予定の配列</returns>
         /// <remarks>ユーザーID、組織ID、および設備IDのうち、いずれか１つだけ指定できる。</remarks>
 
-        if (!options.start || !options.end || (!options.userId && !options.organizationId && !options.facilityId)) return null;
+        if (!options.start || !options.end || (!options.userId && !options.groupId && !options.facilityId)) return null;
 
         var params = {
             start: $.cybozuConnect.formatXSDDateTime(options.start, false),
@@ -221,8 +221,8 @@ CBLabs.CybozuConnect.Schedule = function (app) {
         };
         if (options.userId) {
             params.user = { id: options.userId };
-        } else if (options.organizationId) {
-            params.organization = { id: options.organizationId };
+        } else if (options.groupId) {
+            params.group = { id: options.groupId };
         } else { // options.facilityId
             params.facility = { id: options.facilityId };
         }
@@ -238,7 +238,7 @@ CBLabs.CybozuConnect.Schedule = function (app) {
         /// <param name="options.start" type="Date">取得する期間の開始日時</param>
         /// <param name="options.end" type="Date">取得する期間の終了日時</param>
         /// <param name="options.userIdList" type="Array">（省略可）ユーザーIDの配列</param>
-        /// <param name="options.organizationIdList" type="Array">（省略可）組織IDの配列</param>
+        /// <param name="options.groupIdList" type="Array">（省略可）組織IDの配列</param>
         /// <param name="options.facilityIdList" type="Array">（省略可）設備IDの配列</param>
         /// <returns type="Array">予定の配列</returns>
 
@@ -249,10 +249,10 @@ CBLabs.CybozuConnect.Schedule = function (app) {
         var facilityIdList = options.facilityIdList || new Array();
         if (userIdList.length + orgIdList.length + facilityIdList.length == 0) return null;
 
-        var events = { organizations: {}, users: {}, facilities: {} };
+        var events = { groups: {}, users: {}, facilities: {} };
         for (var i = 0; i < orgIdList.length; i++) {
             var id = orgIdList[i];
-            events.organizations[id] = this.getEventsByTarget({ start: options.start, end: options.end, organizationId: id });
+            events.groups[id] = this.getEventsByTarget({ start: options.start, end: options.end, groupId: id });
         }
         for (var i = 0; i < userIdList.length; i++) {
             var id = userIdList[i];
