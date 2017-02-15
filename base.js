@@ -1,4 +1,4 @@
-﻿/*
+/*
 * cybozu-connect v1.1.3 - Cybozu API JavaScript Library
 *
 * CBLabs.CybozuConnect.Base class
@@ -264,3 +264,178 @@ CBLabs.CybozuConnect.Base = function (app) {
         return null;
     };
 };
+
+  "request":{
+    "id": "100",
+    "status": {
+      "name": "In progress",
+      "type": "IN_PROGRESS"
+    },
+    "createdAt": "2016-09-28T05:27:45Z",
+    "processingStepCode":"$3",
+    "name":  "休暇申請（2016年9月28日分）",
+    "number": "aaa-1",
+    "isUrgent": true,
+    "applicant": {
+      "code": "sato",
+      "name": "佐藤 昇",
+      "proxy": {  
+        "code": "sato2",
+        "name": "佐藤 降"
+      }
+    },
+   "items": {
+      "Item1": {
+        "name": "Item1 name",
+        "type": "SINGLE_LINE_TEXT",
+        "value": "foo"
+      },
+      "Item2": {
+        "name": "Item2 name",
+        "type": "MULTI_LINE_TEXT",
+        "value": "foo"
+      },
+      "Item3": {
+        "name": "Item3 name",
+        "type": "DROP_DOWN",
+        "value": "foo"
+      },
+      "Item4": {
+        "name": "Item4 name",
+        "type": "RADIO_BUTTON",
+        "value": "foo"
+      },
+      "Item5": {
+        "name": "Item5 name",
+        "type": "CHECK_BOX",
+        "value": true
+      },
+      "Item6": {
+        "name": "Item6 name",
+        "type": "NUMBER",
+        "value": "100"
+      },
+      "Item7": {
+        "name": "Item7 name",
+        "type": "CALC",
+        "value": "100"
+      },
+      "Item8": {
+        "name": "Item8 name",
+        "type": "DATE",
+        "value": "2016-09-28"
+      },
+      "Item9": {
+        "name": "Item9 name",
+        "type": "DATETIME",
+        "value": {
+                    "date":"2016-11-12",
+                    "time":"14:40"
+                 }
+      },
+      "Item10": {
+        "name": "Item10 name",
+        "type": "FILE",
+        "value": [
+          {
+             "id": "10",
+            "contentType": "text/plain",
+            "name": "foo.txt",
+            "size": "100"
+          },
+          {
+             "id": "11",
+            "contentType": "text/plain",
+            "name": "bar.txt",
+            "size": "100"
+          }
+        ]
+      },
+      "Item11": {
+        "name": "Item11 name",
+        "type": "ROUTE_NAVI",
+        "value": {
+          "route": {
+            "value": "foo - bar"
+          },
+          "expense": {
+            "value": "100"
+          }
+        }
+      }
+    },
+    "steps": {
+      "Step1": { 
+        "id": 15,
+        "name": "課長承認", 
+        "requrirement": "承認（全員）",
+        "isApprovalStep": 1,
+        "processors": [
+          {
+            "code": "matsuda",
+            "name": "松田 かんな",
+            "result": "Approved",
+            "date": "2016-09-28T06:13:15Z",
+            "comment": "確認しました。" 
+          },
+          {
+            "code": "takahashi",
+            "name": "高橋 健一",
+            "result": "Approved",
+            "date": "2016-09-28T06:13:15Z",
+            "comment": "代理で確認しました。", 
+            "proxy": { 
+              "code": "yamada",
+              "name": "山田 正一"
+            }
+          }
+        ]
+      },
+      "Step2": { 
+        "id": "16",
+        "name": "部長承認", 
+        "requrirement": "承認（全員）",
+        "isApprovalStep": 1,
+        "processors": [
+          {
+            "code": "suzuki",
+            "name": "鈴木 孝充"
+          },
+          {
+            "code": "ito",
+            "name": "伊東 美咲"
+          }
+        ]
+      },
+      "Ack1": { 
+        "id": "17",
+        "name": "関係者",
+        "requrirement": "回覧", 
+        "isApprovalStep": 0,
+        "processors": [
+          {
+            "code": "koinuma",
+            "name": "鯉沼 正"
+          }
+        ]
+      }
+    },
+    "availableOperations": {
+      "list":["SENT_BACK", "APPROVE", "REJECT"],
+      "sentBackTargets": ["$applicant", "Step1", "$2"] 
+    },
+    "folders": {
+      "type": "FOLDER",
+      "value": [
+        {
+          "id": "3",
+          "type": "RECEIVED"
+        },
+        {
+          "id": "4",
+          "type": "SENT"
+        }
+      ]
+    }
+}
+}

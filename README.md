@@ -1,63 +1,33 @@
-cybozu-connect
+garoon-soap-connecter
 ==============
+#Overview
+garoon-soap-connecter はサイボウズガルーンのSOAP APIにアクセスするJavaScript ライブラリです。
+SOAP APIのリクエストやレスポンスをjson形式で取り扱うことができます。
 
-Cybozu API JavaScript Library
+##Desctiption
+* Garoon on cybozu.com に対応します。
+* SOAP APIの扱えるバージョンであればオンプレ版ガルーンでも動作しますがテストはしていません。
+* 下記アプリケーションに対応しています
+  * ベース(Base)
+  * スケジュール(Schedule)
+* SOAP APIリファレンス
+  * [Garoon(ガルーン) API](https://cybozudev.zendesk.com/hc/ja/articles/202228424) 
+* CBLabs.CybozuConnect.App.sso() を呼び出してCookie認証を有効にする場合、その後のデータ更新系のAPI呼び出しについては、.exec() ではなく、 .update() を使用するようにしてください。Cookie認証時のデータ更新においてはリクエストトークンが必要となります。.update() ではリクエストトークンのセットを代行してくれます。
+* APIアクセスの度に、ログイン名およびパスワードをプレーンテキストでサーバーに送信しています。セキュリティを確保するためには、SSLをご利用ください。
 
-General
-----
-garoon-soap-connect �̓T�C�{�E�Y�K���[����SOAP API�ɃA�N�Z�X����JavaScript ���C�u�����ł��B
+##Requirement
+* 以下の JavaScript ライブラリに依存しています。
+  * [jQuery](http://jquery.com/) v3.1.1 以降
 
-�X�V���
---------
+##Usage
+* [API リファレンス](https://github.com/north-river/cybozu-connect/wiki)
 
-����
-----
-* Garoon on cybozu.com �ɑΉ����܂��B
-* SOAP API�̈�����o�[�W�����ł���΃I���v���ŃK���[���ł����삵�܂����e�X�g�͂��Ă��܂���B
+##VS.
+[cybozu-connect](https://github.com/hatashinya/cybozu-connect)との相違点は以下です。
+ * kintoneやガルーンカスタマイズ時に利用する想定で、各関数をカスタマイズJSから参照しやすい形に変更しています。（内部的な変更であり利用の仕方自体に変わりはありません。）
 
-�@�\
-----
-* �x�[�X(Base)
-* �X�P�W���[��(Schedule)
-
-�Ή�API
--------
-* [Garoon(�K���[��) API](https://cybozudev.zendesk.com/hc/ja/articles/202228424) 
-
-�K�v�ȃ��C�u����
-------------
-* �ȉ��� JavaScript ���C�u�����Ɉˑ����Ă��܂��B
-  * [jQuery](http://jquery.com/) v3.1.1 �ȍ~
-
-����m�F�ςݐ��i�o�[�W�����A����уu���E�U
-------------------------------------------
-* ���i�o�[�W����
- * Garoon on cybozu.com
-* �u���E�U
-  * Internet Explorer 11
-  * Firefox 
-  * Google Chrome 
-
-API ���t�@�����X
-----------------
-* [API ���t�@�����X](https://github.com/north-river/cybozu-connect/wiki)
-
-Cookie�F�؂ɂ���
-------------------
-* CBLabs.CybozuConnect.App.sso() ���Ăяo����Cookie�F�؂�L���ɂ���ꍇ�A���̌�̃f�[�^�X�V�n��API�Ăяo���ɂ��ẮA.exec() �ł͂Ȃ��A .update() ���g�p����悤�ɂ��Ă��������BCookie�F�؎��̃f�[�^�X�V�ɂ����Ă̓��N�G�X�g�g�[�N�����K�v�ƂȂ�܂��B.update() �ł̓��N�G�X�g�g�[�N���̃Z�b�g���s���Ă���܂��B
-
-�Z�L�����e�B
-------------
-* API�A�N�Z�X�̓x�ɁA���O�C��������уp�X���[�h���v���[���e�L�X�g�ŃT�[�o�[�ɑ��M���Ă��܂��B�Z�L�����e�B���m�ۂ��邽�߂ɂ́ASSL�������p���������B
-
-Usage
---------
-* [Cybozu Advance](http://code.google.com/p/cybozu-advance/)
-
-License
-------
+##License
 MIT License
 
-Copyriht
-----
+##Copyriht
 Copyright(c) Cybozu, Inc.
