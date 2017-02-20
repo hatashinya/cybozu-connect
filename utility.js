@@ -1,17 +1,21 @@
-/*
-* garoon-soap-connecter v1.0.0 - Cybozu API JavaScript Library
+﻿/*
+* cybozu-connect v1.1.3 - Cybozu API JavaScript Library
 *
 * utility functions as jquery plugins
 *
-* @requires jQuery 3.1.1 or later.
+* @requires jQuery v1.4.1 or later.
 *
-* Copyright (C) 2017 Cybozu, Inc.
+* Copyright (c) 2011 Cybozu Labs, Inc.
+* http://labs.cybozu.co.jp/
+*
+* Licensed under the GPL Version 2 license.
 */
 
-var myJQuery = jQuery.noConflict(true);
 (function ($) {
+
     $.cybozuConnect = {
         /// <summary>ユーティリティ関数</summary>
+
         xmlDom: function (text) {
             /// <summary>XMLからDOMを構築する。</summary>
             /// <param name="text" type="String">XML</param>
@@ -257,5 +261,5 @@ var myJQuery = jQuery.noConflict(true);
         return ((num < 10) ? "0" : "") + num;
     };
 
-})(myJQuery);
+})(jQuery);
 

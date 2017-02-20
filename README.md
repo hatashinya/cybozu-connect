@@ -1,7 +1,7 @@
 garoon-soap-connecter
 ==============
 #Overview
-garoon-soap-connecter はサイボウズガルーンのSOAP APIにアクセスするJavaScript ライブラリです。  
+garoon-soap-connecter はサイボウズガルーンのSOAP APIにアクセスするJavaScript ライブラリです。
 SOAP APIのリクエストやレスポンスをjson形式で取り扱うことができます。
 
 ##Desctiption
