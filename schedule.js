@@ -1,20 +1,20 @@
 /*
 * garoon-soap-connecter v1.0.0 - Cybozu API JavaScript Library
 *
-* CBLabs.CybozuConnect.Schedule class
+* GSC.CybozuConnect.Schedule class
 *
 * @requires jQuery 3.1.1 or later.
 *
 * Copyright (C) 2017 Cybozu, Inc.
 */
 (function($){
-  var CBLabs = window.CBLabs || new Object;
-  if (!CBLabs.CybozuConnect) { CBLabs.CybozuConnect = {}; }
+  var GSC = window.GSC || new Object;
+  if (!GSC.CybozuConnect) { GSC.CybozuConnect = {}; }
 
-  CBLabs.CybozuConnect.SchedulePersonalProfile = function (res) {
+  GSC.CybozuConnect.SchedulePersonalProfile = function (res) {
       /// <summary>スケジュールの個人設定を表すクラス</summary>
       /// <param name="res" type="Object">APIからのレスポンス</param>
-      /// <returns type="CBLabs.CybozuConnect.SchedulePersonalProfile" />
+      /// <returns type="GSC.CybozuConnect.SchedulePersonalProfile" />
 
       var profile = $(res.response).find("personal_profile");
       var plan_menu;
@@ -40,10 +40,10 @@
       };
   };
 
-  CBLabs.CybozuConnect.ScheduleSystemProfile = function (res) {
+  GSC.CybozuConnect.ScheduleSystemProfile = function (res) {
       /// <summary>スケジュールのシステム設定を表すクラス</summary>
       /// <param name="res" type="Object">APIからのレスポンス</param>
-      /// <returns type="CBLabs.CybozuConnect.ScheduleSystemProfile" />
+      /// <returns type="GSC.CybozuConnect.ScheduleSystemProfile" />
 
       var profile = $(res.response).find("system_profile");
       var plan_menu = null;
@@ -80,10 +80,10 @@
       }
   };
 
-  CBLabs.CybozuConnect.Schedule = function (app) {
+  GSC.CybozuConnect.Schedule = function (app) {
       /// <summary>Scheduleで提供されるAPIを実行するクラス</summary>
-      /// <param name="app" type="CBLabs.CybozuConnect.App" />
-      /// <returns type="CBLabs.CybozuConnect.Schedule" />
+      /// <param name="app" type="GSC.CybozuConnect.App" />
+      /// <returns type="GSC.CybozuConnect.Schedule" />
       /// <remarks>
       /// <b>予定を取得する期間の指定について</b>
       ///
@@ -174,11 +174,11 @@
       app.Schedule = this; // set to parent property
 
       // get base
-      var Base = app.Base || new CBLabs.CybozuConnect.Base(app);
+      var Base = app.Base || new GSC.CybozuConnect.Base(app);
 
       this.personalProfile = function () {
           /// <summary>スケジュールの個人設定を返す。</summary>
-          /// <returns type="CBLabs.CybozuConnect.SchedulePersonalProfile" />
+          /// <returns type="GSC.CybozuConnect.SchedulePersonalProfile" />
 
           if (!personalProfile) loadProfiles();
           return personalProfile;
@@ -186,7 +186,7 @@
 
       this.systemProfile = function () {
           /// <summary>スケジュールのシステム設定を返す。</summary>
-          /// <returns type="CBLabs.CybozuConnect.ScheduleSystemProfile" />
+          /// <returns type="GSC.CybozuConnect.ScheduleSystemProfile" />
 
           if (!systemProfile) loadProfiles();
           return systemProfile;
@@ -196,8 +196,8 @@
           var res = app.query("Schedule", "ScheduleGetProfiles", { include_system_profile: true }, true);
           if (res.error) return;
 
-          personalProfile = new CBLabs.CybozuConnect.SchedulePersonalProfile(res);
-          systemProfile = new CBLabs.CybozuConnect.ScheduleSystemProfile(res);
+          personalProfile = new GSC.CybozuConnect.SchedulePersonalProfile(res);
+          systemProfile = new GSC.CybozuConnect.ScheduleSystemProfile(res);
       }
 
       this.getEventsByTarget = function (options) {

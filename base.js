@@ -1,7 +1,7 @@
 /*
 * garoon-soap-connecter v1.0.0 - Cybozu API JavaScript Library
 *
-* CBLabs.CybozuConnect.Base class
+* GSC.CybozuConnect.Base class
 *
 * @requires jQuery 3.1.1 or later.
 *
@@ -9,12 +9,12 @@
 */
 
 (function($){
-  var CBLabs = window.CBLabs || new Object;
-  if (!CBLabs.CybozuConnect) { CBLabs.CybozuConnect = {}; }
-  CBLabs.CybozuConnect.Base = function (app) {
+  var GSC = window.GSC || new Object;
+  if (!GSC.CybozuConnect) { GSC.CybozuConnect = {}; }
+  GSC.CybozuConnect.Base = function (app) {
       /// <summary>Baseで提供されるAPIを実行するためのクラス</summary>
-      /// <param name="app" type="CBLabs.CybozuConnect.App" />
-      /// <returns type="CBLabs.CybozuConnect.Base" />
+      /// <param name="app" type="GSC.CybozuConnect.App" />
+      /// <returns type="GSC.CybozuConnect.Base" />
       /// <remarks>
       /// <b>ユーザー情報の属性</b>
       /// <pre>

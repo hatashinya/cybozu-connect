@@ -1,7 +1,7 @@
 /*
 * garoon-soap-connecter v1.0.0 - Cybozu API JavaScript Library
 *
-* CBLabs.CybozuConnect.App class
+* GSC.CybozuConnect.App class
 *
 * @requires jQuery 3.1.1 or later.
 *
@@ -9,18 +9,18 @@
 */
 
 (function($){
-  window.CBLabs = window.CBLabs || {};
-  window.CBLabs.CybozuConnect = {};
-  window.CBLabs.CybozuConnect.LicenseError = {
+  window.GSC = window.GSC || {};
+  window.GSC.CybozuConnect = {};
+  window.GSC.CybozuConnect.LicenseError = {
       garoon: { code: "GRN_CBPAPI_63006", message: "ライセンスの有効期限を過ぎています。" },
       office: { code: "19107", message: "ライセンスの有効期限を過ぎています。" }
   };
-  window.CBLabs.CybozuConnect.App = function (url, username, password) {
+  window.GSC.CybozuConnect.App = function (url, username, password) {
       /// <summary>サイボウズ Office 8/ガルーン 3 連携 API を実行するためのクラス</summary>
       /// <param name="url" type="String">アクセス先のURL。URlは ag.exe(cgi) または grn.exe(cgi) で終わる必要がある。</param>
       /// <param name="username" type="String">省略可。username と password を指定した場合、クラス生成時に auth を実行する。</param>
       /// <param name="password" type="String">省略可。username と password を指定した場合、クラス生成時に auth を実行する。</param>
-      /// <returns type="CBLabs.CybozuConnect.App" />
+      /// <returns type="GSC.CybozuConnect.App" />
 
       var CybozuType = { Office: "Office", Garoon: "Garoon", GaroonCloud: "GaroonCloud" };
 
@@ -293,8 +293,8 @@
                       res = { response: dom };
                   }
               } else {
-                  if (req.responseText.indexOf(CBLabs.CybozuConnect.LicenseError.garoon.code) >= 0) {
-                      this.error = CBLabs.CybozuConnect.LicenseError.garoon;
+                  if (req.responseText.indexOf(GSC.CybozuConnect.LicenseError.garoon.code) >= 0) {
+                      this.error = GSC.CybozuConnect.LicenseError.garoon;
                   } else {
                       this.error = { message: "予期せぬエラー" };
                   }

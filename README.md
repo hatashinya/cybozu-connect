@@ -12,7 +12,7 @@ SOAP APIのリクエストやレスポンスをjson形式で取り扱うこと�
   * スケジュール(Schedule)
 * SOAP APIリファレンス
   * [Garoon(ガルーン) API](https://cybozudev.zendesk.com/hc/ja/articles/202228424) 
-* CBLabs.CybozuConnect.App.sso() を呼び出してCookie認証を有効にする場合、その後のデータ更新系のAPI呼び出しについては、.exec() ではなく、 .update() を使用するようにしてください。Cookie認証時のデータ更新においてはリクエストトークンが必要となります。.update() ではリクエストトークンのセットを代行してくれます。
+* GSC.CybozuConnect.App.sso() を呼び出してCookie認証を有効にする場合、その後のデータ更新系のAPI呼び出しについては、.exec() ではなく、 .update() を使用するようにしてください。Cookie認証時のデータ更新においてはリクエストトークンが必要となります。.update() ではリクエストトークンのセットを代行してくれます。
 * APIアクセスの度に、ログイン名およびパスワードをプレーンテキストでサーバーに送信しています。セキュリティを確保するためには、SSLをご利用ください。
 
 ##Requirement
