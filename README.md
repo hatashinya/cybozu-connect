@@ -20,7 +20,7 @@ SOAP APIのリクエストやレスポンスをjson形式で取り扱うこと�
   * [jQuery](http://jquery.com/) v3.1.1 以降
 
 ##Usage
-* [API リファレンス](https://github.com/north-river/cybozu-connect/wiki)
+* [リファレンス](https://github.com/north-river/cybozu-connect/wiki)
 
 ##VS.
 [cybozu-connect](https://github.com/hatashinya/cybozu-connect)との相違点は以下です。
